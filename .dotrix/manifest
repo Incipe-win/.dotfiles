@@ -3,4 +3,3 @@
 .config/nvim
 .config/ohmyposh
 .tmux.conf
-test_relative.txt
