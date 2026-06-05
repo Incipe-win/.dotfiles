@@ -5,3 +5,4 @@
 .tmux.conf
 .codex/auth.json
 .codex/config.toml
+.opencommit
