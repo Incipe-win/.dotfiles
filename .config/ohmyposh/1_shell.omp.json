@@ -1,0 +1,168 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "os",
+                    "style": "plain",
+                    "foreground": "#89B4FA",
+                    "template": "{{.Icon}} "
+                },
+                {
+                    "foreground": "#ffbebc",
+                    "style": "plain",
+                    "template": "{{ .UserName }} <#ffffff>on</>",
+                    "type": "session"
+                },
+                {
+                    "foreground": "#bc93ff",
+                    "properties": {
+                        "time_format": "Monday <#ffffff>at</> 15:04"
+                    },
+                    "style": "plain",
+                    "template": " {{ .CurrentDate | date .Format }}",
+                    "type": "time"
+                },
+                {
+                    "foreground": "#ffafd2",
+                    "properties": {
+                        "style": "powerlevel",
+                        "max_width": 40,
+                        "folder_separator_icon": "  ",
+                        "home_icon": "home"
+                    },
+                    "style": "plain",
+                    "template": " <#ffafd2>{</>  {{ .Path }} <#ffafd2>}</>",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#ee79d1",
+                    "properties": {
+                        "branch_icon": " ",
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "style": "plain",
+                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
+                    "type": "git"
+                },
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "foreground": "#FFE873",
+                    "properties": {
+                        "display_mode": "context",
+                        "fetch_virtual_env": true
+                    },
+                    "template": "  {{ if .Venv }}({{ .Venv }}) {{ end }}{{ .Full }}"
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "foreground": "#68A063",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "go",
+                    "style": "plain",
+                    "foreground": "#00ADD8",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "c",
+                    "style": "plain",
+                    "foreground": "#599EFF",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "cpp",
+                    "style": "plain",
+                    "foreground": "#00599C",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "rust",
+                    "style": "plain",
+                    "foreground": "#DEA584",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "java",
+                    "style": "plain",
+                    "foreground": "#ED8B00",
+                    "template": "  {{ .Full }}"
+                },
+                {
+                    "type": "docker",
+                    "style": "plain",
+                    "foreground": "#0db7ed",
+                    "properties": {
+                        "always_enabled": true
+                    },
+                    "template": " 󰡨 {{ if .Context }}{{ .Context }}{{ end }} "
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "segments": [
+                {
+                    "foreground": "#a9ffb4",
+                    "properties": {
+                        "style": "dallas",
+                        "threshold": 0
+                    },
+                    "style": "plain",
+                    "template": " {{ .FormattedMs }}s <#ffffff></>",
+                    "type": "executiontime"
+                },
+                {
+                    "properties": {
+                        "root_icon": " "
+                    },
+                    "style": "plain",
+                    "template": "  ",
+                    "type": "root"
+                },
+                {
+                    "foreground": "#94ffa2",
+                    "style": "plain",
+                    "template": " <#ffffff>MEM:</> {{ round .PhysicalPercentUsed .Precision }}% ({{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB) ",
+                    "type": "sysinfo"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "#00c7fc",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}#ef5350{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true,
+                        "display_mode": "always"
+                    },
+                    "style": "plain",
+                    "template": "❯ ",
+                    "type": "status"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "console_title_template": "{{ .Folder }}",
+    "transient_prompt": {
+        "background": "transparent",
+        "foreground": "#FEF5ED",
+        "template": "❯ "
+    },
+    "version": 2
+}
