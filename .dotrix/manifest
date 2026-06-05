@@ -3,3 +3,5 @@
 .config/nvim
 .config/ohmyposh
 .tmux.conf
+.codex/auth.json
+.codex/config.toml

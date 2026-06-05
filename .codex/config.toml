@@ -1,0 +1,25 @@
+model_provider = "custom"
+model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+disable_response_storage = true
+
+[model_providers.custom]
+name = "my_codex"
+base_url = "https://geekspace.cloud/v1"
+wire_api = "responses"
+requires_openai_auth = true
+
+[projects."/home/huachaowu/code/go/OpenStory"]
+trust_level = "trusted"
+
+[projects."/home/huachaowu/code/aicar"]
+trust_level = "trusted"
+
+[projects."/home/huachaowu/code/agent-project"]
+trust_level = "trusted"
+
+[projects."/home/huachaowu/code/aivideo"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
