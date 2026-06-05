@@ -1,2 +1,0 @@
-token = __DOTRIX_REDACTED__
-name = test
