@@ -1,5 +1,6 @@
-/home/huachaowu/.claude/settings.json
-/home/huachaowu/.zshrc
-/home/huachaowu/.config/nvim
-/home/huachaowu/.config/ohmyposh
-/home/huachaowu/.tmux.conf
+.claude/settings.json
+.zshrc
+.config/nvim
+.config/ohmyposh
+.tmux.conf
+test_relative.txt
