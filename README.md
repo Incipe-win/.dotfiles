@@ -1,36 +1,36 @@
-# dotfiles
+# .dotfiles
 
-> Managed by [dotrix](https://github.com/Incipe-win/dotrix) — single-binary dotfiles manager written in modern C++20.
-
-## What is this?
-
-This repo stores my personal configuration files. Every file mirrors its `$HOME` path — `.zshrc` here maps to `~/.zshrc`, `.config/nvim/` maps to `~/.config/nvim/`.
-
-## How it works
-
-```
-dotrix add ~/.zshrc        # start tracking
-dotrix capture             # save changes → repo
-dotrix sync                # deploy repo → live (auto-merge secrets)
-```
-
-## Secrets
-
-API keys and tokens are automatically redacted as `__DOTRIX_REDACTED__` before
-committing. On sync, live secrets are preserved — new config options are merged
-in while keeping your real keys.
+> My personal config files — managed by [dotrix](https://github.com/Incipe-win/dotrix).
 
 ## New machine setup
 
 ```bash
+# 1. System prerequisites
+sudo apt install -y zsh git curl unzip build-essential
+
+# 2. Build dotrix
 git clone https://github.com/Incipe-win/dotrix.git ~/dotrix
 cd ~/dotrix && xmake
 
-git clone <this-repo> ~/.dotfiles
+# 3. Clone this repo
+git clone https://github.com/Incipe-win/.dotfiles.git ~/.dotfiles
+
+# 4. Set GitHub token
+~/dotrix/dotrix config github_token ghp_xxx
+
+# 5. Install shell tools (zsh plugins, prompt)
+~/dotrix/dotrix setup --pick
+
+# 6. Deploy configs
 ~/dotrix/dotrix sync
-~/dotrix/dotrix setup --pick   # install dev tools
+
+# 7. Install dev tools
+~/dotrix/dotrix setup --pick
+
+# 8. Switch shell
+chsh -s $(which zsh) && exec zsh
 ```
 
-## Managed files
+## What's managed
 
 See `.dotrix/manifest.json` for the full list.
