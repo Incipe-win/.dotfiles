@@ -1,4 +1,13 @@
 [
+  ".zshrc",
+  ".tmux.conf",
+  ".gitconfig",
+  ".opencommit",
+  ".claude/settings.json",
+  ".codex/auth.json",
+  ".codex/config.toml",
   ".config/dotrix/config.json",
+  ".config/nvim",
+  ".config/ohmyposh",
   ".dotfiles/.dotrix/recipes.json"
 ]
