@@ -6,6 +6,12 @@
     "install": "[ -d $HOME/.fzf ] || { git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install --all --no-update-rc; }"
   },
   {
+    "name": "trzsz",
+    "desc": "trz/tsz \u2014 file transfer",
+    "check": "trz",
+    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/trzsz/trzsz-go/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/trzsz/trzsz-go/releases/download/$ver/trzsz_${v}_linux_x86_64.tar.gz -o /tmp/trzsz.tar.gz && tar -xzf /tmp/trzsz.tar.gz -C /tmp && cp /tmp/trzsz/trz /tmp/trzsz/tsz $HOME/.local/bin/"
+  },
+  {
     "name": "ohmyposh",
     "desc": "prompt theme engine",
     "check": "oh-my-posh",
@@ -15,7 +21,7 @@
     "name": "ohmyzsh",
     "desc": "Oh My Zsh framework",
     "check": "test -d $HOME/.oh-my-zsh",
-    "install": "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
+    "install": "ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom} && sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended && [ -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] || git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions && [ -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ] || git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && [ -d $ZSH_CUSTOM/plugins/z ] || git clone --depth=1 https://github.com/agkozak/zsh-z.git $ZSH_CUSTOM/plugins/z"
   },
   {
     "name": "zoxide",
