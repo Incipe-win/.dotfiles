@@ -8,5 +8,6 @@
   ".codex/config.toml",
   ".opencommit",
   ".gitconfig",
-  ".config/dotrix/config.json"
+  ".config/dotrix/config.json",
+  ".dotfiles/.dotrix/recipes.json"
 ]
