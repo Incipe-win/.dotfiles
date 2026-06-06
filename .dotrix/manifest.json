@@ -8,6 +8,5 @@
   ".codex/config.toml",
   ".config/dotrix/config.json",
   ".config/nvim",
-  ".config/ohmyposh",
-  ".dotfiles/.dotrix/recipes.json"
+  ".config/ohmyposh"
 ]
