@@ -8,5 +8,6 @@
   ".codex/config.toml",
   ".config/dotrix/config.json",
   ".config/nvim",
-  ".config/ohmyposh"
+  ".config/ohmyposh",
+  ".fzf.zsh"
 ]

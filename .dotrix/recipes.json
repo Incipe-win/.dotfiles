@@ -9,7 +9,7 @@
     "name": "trzsz",
     "desc": "trz/tsz \u2014 file transfer",
     "check": "trz",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/trzsz/trzsz-go/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/trzsz/trzsz-go/releases/download/$ver/trzsz_${v}_linux_x86_64.tar.gz -o /tmp/trzsz.tar.gz && tar -xzf /tmp/trzsz.tar.gz -C /tmp && cp /tmp/trzsz/trz /tmp/trzsz/tsz $HOME/.local/bin/"
+    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/trzsz/trzsz-go/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/trzsz/trzsz-go/releases/download/$ver/trzsz_${v}_linux_x86_64.tar.gz -o /tmp/trzsz.tar.gz && tar -xzf /tmp/trzsz.tar.gz -C /tmp && cp /tmp/trzsz_${v}_linux_x86_64/trz /tmp/trzsz_${v}_linux_x86_64/tsz $HOME/.local/bin/"
   },
   {
     "name": "ohmyposh",
