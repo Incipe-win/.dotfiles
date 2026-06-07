@@ -165,13 +165,13 @@
     "name": "rust-analyzer",
     "desc": "Rust LSP server",
     "check": "rust-analyzer",
-    "install": "curl -fsSL https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu -o $HOME/.local/bin/rust-analyzer && chmod +x $HOME/.local/bin/rust-analyzer"
+    "install": "curl -fsSL https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz -o /tmp/ra.gz && gunzip -f /tmp/ra.gz && mv /tmp/ra $HOME/.local/bin/rust-analyzer && chmod +x $HOME/.local/bin/rust-analyzer"
   },
   {
     "name": "node",
     "desc": "node.js via nvm",
     "check": "node",
-    "install": "[ -d $HOME/.nvm ] || { curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; } && export NVM_DIR=$HOME/.nvm && [ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh && nvm install --lts"
+    "install": "[ -d $HOME/.nvm ] || { curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; } && export NVM_DIR=\"$HOME/.nvm\" && . \"$NVM_DIR/nvm.sh\" && nvm install --lts || true"
   },
   {
     "name": "bun",
