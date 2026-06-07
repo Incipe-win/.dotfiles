@@ -152,8 +152,8 @@
   {
     "name": "pyright",
     "desc": "Python type checker",
-    "check": "test -f $HOME/.local/bin/pyright || which pyright",
-    "install": "pip install --user pyright 2>/dev/null || pip3 install pyright 2>/dev/null || npm install -g pyright 2>/dev/null || true"
+    "check": "which pyright || npm list -g pyright >/dev/null 2>&1",
+    "install": "npm install -g pyright 2>/dev/null || true"
   },
   {
     "name": "rust",
