@@ -99,6 +99,12 @@
     "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/clangd/clangd/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/clangd/clangd/releases/download/$ver/clangd-linux-$ver.zip -o /tmp/clangd.zip && unzip -o /tmp/clangd.zip -d /tmp/clangd && cp /tmp/clangd/clangd_*/bin/clangd $HOME/.local/bin/clangd"
   },
   {
+    "name": "xmake",
+    "desc": "xmake build system",
+    "check": "xmake",
+    "install": "curl -fsSL https://xmake.io/shget.text | bash"
+  },
+  {
     "name": "cmake",
     "desc": "CMake build system",
     "check": "cmake",
