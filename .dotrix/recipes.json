@@ -152,8 +152,8 @@
   {
     "name": "pyright",
     "desc": "Python type checker",
-    "check": "which pyright || npm list -g pyright >/dev/null 2>&1",
-    "install": "npm install -g pyright 2>/dev/null || true"
+    "check": "which pyright || uv tool list 2>/dev/null | grep -q pyright",
+    "install": "uv tool install pyright 2>/dev/null || pipx install pyright 2>/dev/null || npm install -g pyright 2>/dev/null || true"
   },
   {
     "name": "rust",
