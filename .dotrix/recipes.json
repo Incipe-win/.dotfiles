@@ -7,9 +7,9 @@
   },
   {
     "name": "trzsz",
-    "desc": "trz/tsz \u2014 file transfer",
+    "desc": "trz/tsz — file transfer",
     "check": "trz",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/trzsz/trzsz-go/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/trzsz/trzsz-go/releases/download/$ver/trzsz_${v}_linux_x86_64.tar.gz -o /tmp/trzsz.tar.gz && tar -xzf /tmp/trzsz.tar.gz -C /tmp && cp /tmp/trzsz_${v}_linux_x86_64/trz /tmp/trzsz_${v}_linux_x86_64/tsz $HOME/.local/bin/"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/trzsz/trzsz-go/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/trzsz/trzsz-go/releases/download/$ver/trzsz_${v}_linux_x86_64.tar.gz -o /tmp/trzsz.tar.gz && tar -xzf /tmp/trzsz.tar.gz -C /tmp && cp /tmp/trzsz_${v}_linux_x86_64/trz /tmp/trzsz_${v}_linux_x86_64/tsz $HOME/.local/bin/"
   },
   {
     "name": "ohmyposh",
@@ -39,43 +39,43 @@
     "name": "nvim",
     "desc": "neovim editor",
     "check": "nvim",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/neovim/neovim/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && [ -n \"$ver\" ] && curl -fsSL https://github.com/neovim/neovim/releases/download/$ver/nvim-linux-x86_64.tar.gz -o /tmp/nvim.tar.gz && rm -rf $HOME/.local/nvim-linux-x86_64 && tar -xzf /tmp/nvim.tar.gz -C $HOME/.local && ln -sf $HOME/.local/nvim-linux-x86_64/bin/nvim $HOME/.local/bin/nvim"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/neovim/neovim/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && [ -n \"$ver\" ] && curl -fsSL https://github.com/neovim/neovim/releases/download/$ver/nvim-linux-x86_64.tar.gz -o /tmp/nvim.tar.gz && rm -rf $HOME/.local/nvim-linux-x86_64 && tar -xzf /tmp/nvim.tar.gz -C $HOME/.local && ln -sf $HOME/.local/nvim-linux-x86_64/bin/nvim $HOME/.local/bin/nvim"
   },
   {
     "name": "rg",
     "desc": "ripgrep",
     "check": "rg",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/BurntSushi/ripgrep/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/BurntSushi/ripgrep/releases/download/$ver/ripgrep-$v-x86_64-unknown-linux-musl.tar.gz -o /tmp/rg.tar.gz && tar -xzf /tmp/rg.tar.gz -C /tmp && cp /tmp/ripgrep-$v-x86_64-unknown-linux-musl/rg $HOME/.local/bin/rg"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/BurntSushi/ripgrep/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/BurntSushi/ripgrep/releases/download/$ver/ripgrep-$v-x86_64-unknown-linux-musl.tar.gz -o /tmp/rg.tar.gz && tar -xzf /tmp/rg.tar.gz -C /tmp && cp /tmp/ripgrep-$v-x86_64-unknown-linux-musl/rg $HOME/.local/bin/rg"
   },
   {
     "name": "fd",
-    "desc": "fd \u2014 fast find",
+    "desc": "fd — fast find",
     "check": "fd",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/sharkdp/fd/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/sharkdp/fd/releases/download/$ver/fd-$ver-x86_64-unknown-linux-musl.tar.gz -o /tmp/fd.tar.gz && tar -xzf /tmp/fd.tar.gz -C /tmp && cp /tmp/fd-$ver-x86_64-unknown-linux-musl/fd $HOME/.local/bin/fd"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/sharkdp/fd/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/sharkdp/fd/releases/download/$ver/fd-$ver-x86_64-unknown-linux-musl.tar.gz -o /tmp/fd.tar.gz && tar -xzf /tmp/fd.tar.gz -C /tmp && cp /tmp/fd-$ver-x86_64-unknown-linux-musl/fd $HOME/.local/bin/fd"
   },
   {
     "name": "bat",
-    "desc": "bat \u2014 cat with highlighting",
+    "desc": "bat — cat with highlighting",
     "check": "bat",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/sharkdp/bat/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/sharkdp/bat/releases/download/$ver/bat-$ver-x86_64-unknown-linux-musl.tar.gz -o /tmp/bat.tar.gz && tar -xzf /tmp/bat.tar.gz -C /tmp && cp /tmp/bat-$ver-x86_64-unknown-linux-musl/bat $HOME/.local/bin/bat"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/sharkdp/bat/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/sharkdp/bat/releases/download/$ver/bat-$ver-x86_64-unknown-linux-musl.tar.gz -o /tmp/bat.tar.gz && tar -xzf /tmp/bat.tar.gz -C /tmp && cp /tmp/bat-$ver-x86_64-unknown-linux-musl/bat $HOME/.local/bin/bat"
   },
   {
     "name": "delta",
-    "desc": "delta \u2014 better git diff",
+    "desc": "delta — better git diff",
     "check": "delta",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/dandavison/delta/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/dandavison/delta/releases/download/$ver/delta-$v-x86_64-unknown-linux-gnu.tar.gz -o /tmp/delta.tar.gz && tar -xzf /tmp/delta.tar.gz -C /tmp && cp /tmp/delta-$v-x86_64-unknown-linux-gnu/delta $HOME/.local/bin/delta"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/dandavison/delta/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/dandavison/delta/releases/download/$ver/delta-$v-x86_64-unknown-linux-gnu.tar.gz -o /tmp/delta.tar.gz && tar -xzf /tmp/delta.tar.gz -C /tmp && cp /tmp/delta-$v-x86_64-unknown-linux-gnu/delta $HOME/.local/bin/delta"
   },
   {
     "name": "eza",
-    "desc": "eza \u2014 modern ls",
+    "desc": "eza — modern ls",
     "check": "eza",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/eza-community/eza/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/eza-community/eza/releases/download/$ver/eza_x86_64-unknown-linux-musl.tar.gz -o /tmp/eza.tar.gz && tar -xzf /tmp/eza.tar.gz -C /tmp && cp /tmp/eza $HOME/.local/bin/eza"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/eza-community/eza/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/eza-community/eza/releases/download/$ver/eza_x86_64-unknown-linux-musl.tar.gz -o /tmp/eza.tar.gz && tar -xzf /tmp/eza.tar.gz -C /tmp && cp /tmp/eza $HOME/.local/bin/eza"
   },
   {
     "name": "lazygit",
     "desc": "terminal git UI",
     "check": "lazygit",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/jesseduffield/lazygit/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/jesseduffield/lazygit/releases/download/$ver/lazygit_${v}_Linux_x86_64.tar.gz -o /tmp/lazygit.tar.gz && tar -xzf /tmp/lazygit.tar.gz -C /tmp lazygit && cp /tmp/lazygit $HOME/.local/bin/lazygit"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/jesseduffield/lazygit/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/jesseduffield/lazygit/releases/download/$ver/lazygit_${v}_Linux_x86_64.tar.gz -o /tmp/lazygit.tar.gz && tar -xzf /tmp/lazygit.tar.gz -C /tmp lazygit && cp /tmp/lazygit $HOME/.local/bin/lazygit"
   },
   {
     "name": "gcc",
@@ -96,7 +96,7 @@
     "name": "clangd",
     "desc": "C/C++ LSP server",
     "check": "clangd",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/clangd/clangd/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/clangd/clangd/releases/download/$ver/clangd-linux-$ver.zip -o /tmp/clangd.zip && unzip -o /tmp/clangd.zip -d /tmp/clangd && cp /tmp/clangd/clangd_*/bin/clangd $HOME/.local/bin/clangd"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/clangd/clangd/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/clangd/clangd/releases/download/$ver/clangd-linux-$ver.zip -o /tmp/clangd.zip && unzip -o /tmp/clangd.zip -d /tmp/clangd && cp /tmp/clangd/clangd_*/bin/clangd $HOME/.local/bin/clangd"
   },
   {
     "name": "xmake",
@@ -108,7 +108,7 @@
     "name": "cmake",
     "desc": "CMake build system",
     "check": "cmake",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/Kitware/CMake/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/Kitware/CMake/releases/download/$ver/cmake-$v-linux-x86_64.tar.gz -o /tmp/cmake.tar.gz && tar -xzf /tmp/cmake.tar.gz -C /tmp && cp /tmp/cmake-$v-linux-x86_64/bin/cmake $HOME/.local/bin/cmake"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/Kitware/CMake/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && v=${ver#v} && curl -fsSL https://github.com/Kitware/CMake/releases/download/$ver/cmake-$v-linux-x86_64.tar.gz -o /tmp/cmake.tar.gz && tar -xzf /tmp/cmake.tar.gz -C /tmp && cp /tmp/cmake-$v-linux-x86_64/bin/cmake $HOME/.local/bin/cmake"
   },
   {
     "name": "make",
@@ -136,7 +136,7 @@
     "name": "delve",
     "desc": "Go debugger (dlv)",
     "check": "dlv",
-    "install": "GOBIN=$HOME/.local/bin go install github.com/go-delve/delve/cmd/dlv@latest"
+    "install": "GOBIN=$HOME/.local/bin GOPROXY=https://goproxy.io,direct go install github.com/go-delve/delve/cmd/dlv@latest"
   },
   {
     "name": "python",
@@ -145,13 +145,13 @@
   },
   {
     "name": "uv",
-    "desc": "uv \u2014 fast Python pkg mgr",
+    "desc": "uv — fast Python pkg mgr",
     "check": "uv",
     "install": "curl -fsSL https://astral.sh/uv/install.sh | sh"
   },
   {
     "name": "ruff",
-    "desc": "ruff \u2014 Python linter",
+    "desc": "ruff — Python linter",
     "check": "ruff",
     "install": "curl -fsSL https://astral.sh/ruff/install.sh | sh"
   },
@@ -194,13 +194,13 @@
     "name": "tree-sitter",
     "desc": "tree-sitter CLI",
     "check": "tree-sitter",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/tree-sitter/tree-sitter/releases/download/$ver/tree-sitter-linux-x64.gz -o /tmp/ts.gz && gunzip -f /tmp/ts.gz && mv /tmp/ts $HOME/.local/bin/tree-sitter && chmod +x $HOME/.local/bin/tree-sitter"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/tree-sitter/tree-sitter/releases/download/$ver/tree-sitter-linux-x64.gz -o /tmp/ts.gz && gunzip -f /tmp/ts.gz && mv /tmp/ts $HOME/.local/bin/tree-sitter && chmod +x $HOME/.local/bin/tree-sitter"
   },
   {
     "name": "mihomo",
     "desc": "proxy (clash meta)",
     "check": "mihomo",
-    "install": "ver=$(curl -sL -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/MetaCubeX/mihomo/releases/download/$ver/mihomo-linux-amd64-$ver.gz -o /tmp/mihomo.gz && gunzip -f /tmp/mihomo.gz && mv /tmp/mihomo $HOME/.local/bin/mihomo && chmod +x $HOME/.local/bin/mihomo"
+    "install": "auth_header=\"\"; [ -n \"$GITHUB_TOKEN\" ] && auth_header=\"Authorization: token $GITHUB_TOKEN\"; ver=$(curl -sL ${auth_header:+-H \"$auth_header\"} https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep tag_name | head -1 | cut -d'\"' -f4) && curl -fsSL https://github.com/MetaCubeX/mihomo/releases/download/$ver/mihomo-linux-amd64-$ver.gz -o /tmp/mihomo.gz && gunzip -f /tmp/mihomo.gz && mv /tmp/mihomo $HOME/.local/bin/mihomo && chmod +x $HOME/.local/bin/mihomo"
   },
   {
     "name": "htop",
