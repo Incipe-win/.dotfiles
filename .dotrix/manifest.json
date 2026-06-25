@@ -9,5 +9,6 @@
   ".config/dotrix/config.json",
   ".config/nvim",
   ".config/ohmyposh",
-  ".fzf.zsh"
+  ".fzf.zsh",
+  ".config/dotrix/recipes.json"
 ]
